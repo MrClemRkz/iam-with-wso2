@@ -31,3 +31,12 @@ services:
       - "8080:80"
     depends_on:
       - openldap # service name
+
+  mysql:
+    image: mysql/mysql-server:5.7
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "toor"
+      MYSQL_DATABASE: "wso2is"
+    ports:
+      - "3306:3306"
