@@ -2,7 +2,8 @@ version: '3'
 
 services:
   wso2is:
-    build: ./wso2is
+    build: 
+      context: ./wso2is
     image: wso2is:5.6.0
     container_name: wso2is
     ports:
@@ -10,7 +11,8 @@ services:
     entrypoint: /home/wso2carbon/init.sh
 
   openldap:
-    image: osixia/openldap:1.2.2
+    build:
+      context: ./openldap
     container_name: openldap
     environment:
       LDAP_DOMAIN: "wso2.com"
