@@ -1,0 +1,12 @@
+# Entry 1: ou=Users,dc=wso2,dc=com
+dn: ou=Users,dc=wso2,dc=com
+objectclass: organizationalUnit
+objectclass: top
+ou: Users
+
+
+# Entry 2: ou=Groups,dc=wso2,dc=com
+dn: ou=Groups,dc=wso2,dc=com
+objectclass: organizationalUnit
+objectclass: top
+ou: Groups
