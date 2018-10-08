@@ -65,6 +65,10 @@ ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/org/wso2/carbon/kuber
 # set temporary location for shared artifacts
 COPY --chown=wso2carbon:wso2 ${FILES}/${WSO2_SERVER_PACK}/repository/deployment/ ${USER_HOME}/wso2-tmp/deployment
 
+# update config files
+COPY --chown=wso2carbon:wso2 config/user-mgt.xml /home/wso2carbon/wso2is-5.6.0/repository/conf/
+COPY --chown=wso2carbon:wso2 config/tenant-mgt.xml /home/wso2carbon/wso2is-5.6.0/repository/conf/
+
 # set the user and work directory
 USER ${USER_ID}
 WORKDIR ${USER_HOME}
