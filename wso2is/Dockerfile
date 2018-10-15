@@ -66,8 +66,8 @@ ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/org/wso2/carbon/kuber
 COPY --chown=wso2carbon:wso2 ${FILES}/${WSO2_SERVER_PACK}/repository/deployment/ ${USER_HOME}/wso2-tmp/deployment
 
 # update config files
-COPY --chown=wso2carbon:wso2 config/user-mgt.xml /home/wso2carbon/wso2is-5.6.0/repository/conf/
-COPY --chown=wso2carbon:wso2 config/tenant-mgt.xml /home/wso2carbon/wso2is-5.6.0/repository/conf/
+COPY --chown=wso2carbon:wso2 config/user-mgt.xml ${WSO2_SERVER_HOME}/repository/conf/
+COPY --chown=wso2carbon:wso2 config/tenant-mgt.xml ${WSO2_SERVER_HOME}/repository/conf/
 
 # set the user and work directory
 USER ${USER_ID}
@@ -79,7 +79,3 @@ ENV JAVA_HOME=${JAVA_HOME} \
     WSO2_SERVER_HOME=${WSO2_SERVER_HOME} \
     WORKING_DIRECTORY=${USER_HOME}
 
-# expose ports
-EXPOSE 4000 9763 9443
-
-ENTRYPOINT ${WORKING_DIRECTORY}/init.sh
